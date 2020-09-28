@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        var url="http://127.0.0.1:5500?user=name&password=123456";
+        var arr=url.split(/:|=|\?|&/);
+        console.log(arr);
+
+        var english="fsdsdgag";
+        var arr=english.split("");
+        arr.reverse();
+        str1=arr.join("");
+        str2=arr.toString().replace(/,/g,"");
+        console.log(str1);
+        console.log(str2);
+        console.log(arr);
+
+        var word="苹果|栗子|香蕉|菠萝|波罗蜜";
+        var arr=word.split(/\|/);
+        console.log(arr);
+
+        var email="huangjingmo@tedu.com";
+        var arr=email.split("@");
+        console.log(arr);
+        console.log(`用户名:${arr[0]}`);
+        console.log(`域名:${arr[1]}`);
+
+        var str="no zuo no die";
+        var arr=str.split(" ");
+        console.log(arr);
+    </script>
+</body>
+</html>

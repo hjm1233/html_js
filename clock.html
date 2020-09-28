@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+    <style>
+       #clock{
+           width: 500px;
+           height: 500px;
+           border-radius: 50%;
+           border: 3px solid #0aa1ed;
+           position: relative;
+           /* box-sizing: border-box; */
+       }
+       @keyframes time{
+           0%{transform: rotate(0deg);}
+           100%{transform: rotate(360deg);}
+       }
+       #hour{
+           width: 7px;
+           height: 180px;
+           background-color: #0f0;
+           border-radius: 3.5px;
+           position: absolute;
+           top: 70px;
+           left: 246.5px;
+           transform-origin:center bottom;
+           animation: time 43200s linear infinite;
+       }
+       #second{
+           width: 3px;
+           height: 250px;
+           background-color: #f00;
+           position: absolute;
+           left: 248.5px;
+           transform-origin:center bottom;
+           animation: time 60s linear infinite;
+       }
+       #minute{
+           width: 5px;
+           height: 210px;
+           background-color: #0ff;
+           position: absolute;
+           top: 40px;
+           left: 247.5px;
+           transform-origin:center bottom;
+           animation: time 3600s linear infinite;
+       }
+       #center{
+           width: 8px;
+           height: 8px;
+           background-color: #f00;
+           position: absolute;
+           left: 246px;
+           top: 246px;
+           border-radius: 50%;
+       }
+    </style>
+</head>
+<body>
+    <div id="clock">
+        <div id="second"></div>
+        <div id="minute"></div>
+        <div id="hour"></div>
+        <div id="center"></div>
+    </div>
+</body>
+</html>

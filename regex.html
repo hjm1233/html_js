@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p id="p4"></p>
+    <p id="p5"></p>
+    <p id="p6"></p>
+    <p id="p7"></p>
+    <p id="p8"></p>
+    <p id="p9"></p>
+    <p id="p10"></p>
+    <script type="text/javascript">
+        let word1="我前天去她家，我说了一句：卧草，你家真大我草我cao！";console.log(word1);
+        let word2="13677333472";                                    console.log(word2);
+        let word3="京N·BS123";                                      console.log(word3);
+        let word4=" 你好 '\t' '\n'啊\t哈哈\t嗯\n";                   console.log(word4);
+        let word5="123456";                                         console.log(word5);
+        let word6="我  槽 草 我  操  艹";                            console.log(word6);
+        let word7="2093230346@qq.com";                              console.log(word7);
+        let word8="abcabCab3";                                      console.log(word8);
+        let word9="24263857638.12414";                              console.log(word9);
+        let word10="423425255HUANG";                                console.log(word10);
+
+        document.getElementById('p1').textContent=word1.replace(/[我卧][草槽艹]|我cao/g,"**");
+        document.getElementById('p2').textContent=word2.replace(/^1[3-9][0-9]{9}$/,"电话号码正确");
+        document.getElementById('p3').textContent=word3.replace(/^[\u4e00-\u9fa5][A-Z]·[A-Z0-9]{5}$/,"车牌照正确");
+        document.getElementById('p4').textContent=word4.replace(/\s/g,"*");
+        document.getElementById('p5').textContent=word5.replace(/\d{6}|\d{4}/,"验证码正确");
+        document.getElementById('p6').textContent=word6.replace(/([我卧]|wo)*\s*([草艹槽操]|cao)/g,"*");
+        document.getElementById('p7').textContent=word7.replace(/[0-9A-Za-z]+@[0-9A-Za-z]+.com/,"正确邮箱");
+        document.getElementById('p8').textContent=word8.replace(/ab(?![A-Z])/g,"0k");
+        document.getElementById('p9').textContent=word9.replace(/(?!\.(\d)*)(\d)(?=(\d{3})+(\.|$))/g,"$2,");
+        document.getElementById('p10').textContent=word10.replace(/^(?![0-9a-z]+$)(?![a-zA-z]+$)[0-9a-zA-Z]+$/,"密码正确");
+    </script>
+</body>
+</html>

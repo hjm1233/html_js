@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css</title>
+    <style type="text/css">
+       .p-before::before{
+           content: "Info: ";
+           color: red;
+           font-weight: bold;
+       }
+       .p-after::after{
+           content: " World";
+           color: red;
+           font-weight: bold;
+       }
+       .other::after{
+          content: " 。";
+          display: block;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background-color: #000;
+       }
+
+    </style>
+</head>
+<body>
+    <p class="p-before">这是一段描述性文字</p>
+    <p class="p-after">Hello</p>
+    <p class="other">结尾的圆点</p>
+</body>
+</html>

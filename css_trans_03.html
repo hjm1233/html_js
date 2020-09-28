@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css_trans_03</title>
+    <style>
+       #d1{
+           width: 400px;
+           height: 400px;
+           background-color: #faf;
+           position: relative;
+       }
+       #d2{
+           width: 100px;
+           height: 100px;
+           background-color: #aff;
+           position:absolute;
+           left: 50%;
+           transform: translateX(-150%);
+       }
+       #d1>div:first-child{
+           height: 100px;
+           width: 150px;
+           background-color: #afa;
+           position: absolute;
+           left: 0;
+       }
+       #d1>div:last-child{
+           height: 100px;
+           width: 150px;
+           background-color: #afa;
+           position: absolute;
+           right: 0;
+       }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        <div></div>
+        <div id="d2"></div>
+        <div></div>
+    </div>
+    
+
+</body>
+</html>

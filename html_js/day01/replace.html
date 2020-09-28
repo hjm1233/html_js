@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        function trim_Left(str){
+            return str.replace(/^\s+/,"");
+        }
+        function trim_Right(str){
+            return str.replace(/\s+$/,"");
+        }
+        function trim(str){
+            return str.replace(/(^\s+|\s+$)/g,"");
+        }
+        var string="     fagagg  gsagd   gasdgg    ";
+        console.log(trim_Left(string));
+        console.log(trim_Right(string));
+        console.log(trim(string));
+
+        var str_word1="you can you up";
+        var str_word2="no can no bb";
+        str_word1=str_word1.replace(/\b[a-z]/g,function(keyword){
+            console.log(`keyword=${keyword}`);
+            return keyword.toUpperCase();
+        });
+        console.log(str_word1);
+
+        var str="老师：请用小红 我的 朋友造句。小亮：我是小红的朋友。小然：朋友！小红是我的！";
+        console.log(str);
+        str=str.replace(/小[\u4e00-\u9fa5]/g,"**");
+        console.log(str);
+    </script>
+</body>
+</html>
