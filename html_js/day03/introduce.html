@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        var lilei={
+            sname:"Li Lei",
+            sage:11,
+            intr:function(){
+                console.log(`I'm ${this.sname},I'm${this.sage}`);
+            }
+        }
+
+        function Person2() {
+        this.age = 28;
+        return 50;
+        }
+
+        var p2 = new Person2();
+        console.log(p2);
+
+
+        console.log(p2.age); 
+
+        function Student(sname,sage){
+            this.sname=sname;
+            this.sage=sage;
+            this.intr=function(){
+                console.log(`I'm${this.sname},I'm${this.sage}`);
+            }
+        }
+         ran=new Student("ran",11);
+         hmm=new Student("hmm",12);
+        console.log(ran);
+        console.log(hmm);
+        
+
+        for(var k in lilei){
+            console.log(typeof(k));
+            console.log(`"${k}"`);
+            // console.log(`${k},${lilei[k]}`);
+            // console.log(`${k},${lilei.k}`);
+            // console.log(`${k},${lilei["k"]}`);
+            console.log(`${k},${lilei[`"${k}"`]}`);
+            console.log(`${k},${lilei[`${k}`]}`);
+        }
+        // 克隆
+        function clone(oldObj){
+            var newObj={};
+            for(var k in oldObj){
+                newObj[k]=oldObj[k];
+            }
+            return newObj;
+        }
+        var lilei2=clone(lilei);
+        console.log(lilei2);
+        console.log(lilei==lilei2);
+        console.log(lilei);
+    //     console.log(`李磊今年${lilei.sage}岁`);
+    //     lilei.intr();
+    //     lilei.sage++;
+    //     console.log(`李磊今年${lilei.sage}岁`);
+    //     lilei.intr();
+    // </script>
+</body>
+</html>

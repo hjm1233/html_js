@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+<body>
+    
+    <script>
+
+        function parent(){
+            var total=1000;
+            return function(money){
+                total=-money;
+                console.log(`花了${money},还剩${total}`);
+            }
+
+        }
+        var pay=parent();
+        //为什么total在pay函数执行后不会消失？
+        //因为pay保存了function(money)的地址
+        //而function(money)引用了total变量，total变量在parent变量作用域中
+        //所以parent虽然没有被引用，但是因为里面的函数被保存而也保留了
+    </script>
+</body>
+</html>
