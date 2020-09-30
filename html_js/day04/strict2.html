@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    "use strict";
+
+    var eric={
+      eid:1001,
+      ename:"埃里克"
+    }
+    //公司要求所有员工的eid属性，禁止修改
+    //十一之后讲，暂时不要问为什么
+    //     定义   属性     eric的eid
+    Object.defineProperty(eric,"eid",{
+      //可修改 为 false —— 不可修改
+      writable:false
+    })
+
+    eric.eid=-2;
+    console.log(eric);
+  </script>
+</body>
+</html>

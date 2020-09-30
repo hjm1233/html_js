@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //定义描述学生类型的构造函数
+    //       类型名
+    //       ↓
+    function Student(sname, sage){
+      //要求: 每个学生都要有
+      //*学生姓名*
+      this.sname=sname;
+      //和*学生年龄*属性
+      this.sage=sage;
+      
+    }
+    // console.log(Student);//函数内容
+    console.dir(Student);//函数在内存中的存储结构
+    
+    //因为所有的学生都要求会做自我介绍，所以，自我介绍的功能应该集中保存在构造函数的原型对象中一份即可！所有子对象通过继承关系，共用一个函数！——节约内存！
+    //并且每个学生都要*会做自我介绍*！ 
+    Student.prototype.intr=function(){
+      console.log(`I'm ${this.sname}, I'm ${this.sage}`)
+    };
+    
+    
+    
+    //2. 反复用new调用构造函数，反复创建多个相同结构的对象，并传入每个对象各不相同的属性值
+    var lilei=new Student("Li Lei",11);
+    var hmm=new Student("Han Meimei",12);
+
+    console.log(lilei);
+    console.log(hmm);
+    lilei.intr();
+    hmm.intr();
+
+    //亲子鉴定: 
+    //李磊的爹是不是Student的老公: true            
+    console.log(
+      lilei.__proto__==Student.prototype
+    )//         爹                老公
+    //hmm的爹是不是Student的老公: true
+    console.log(
+      hmm.__proto__==Student.prototype
+    )
+  </script>
+</body>
+</html>

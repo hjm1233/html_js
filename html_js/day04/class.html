@@ -23,6 +23,21 @@
         lilei.intr();
         hmm.intr();
 
+        hmm.sage++;
+        console.log(hmm.sage);
+        console.log(lilei.sage);
+
+        Array.prototype.sum=function(){
+              
+            for(var i=0,sums=0;i<this.length;i++){
+                sums+=this[i];
+            }
+            return sums;
+        }
+        var arr1=[1,2,3,4,5,6,7,8,9,10];
+        console.log(arr1.sum());
+
+
         console.log(
             lilei.__proto__==Student.prototype
         );

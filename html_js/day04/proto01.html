@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+     "use strict";
+    function Student(sname,sage){
+      this.sname=sname;
+      this.sage=sage;
+    }
+
+    //保护eric中的id属性值不被修改
+    var eric={
+      id:10000,
+      ename:"埃里克"
+    }
+    Object.defineProperty(eric,"id",{
+      writable:false
+    });
+    eric.id=-2;
+    console.log(eric);
+
+    //修改子对象的
+    var father={
+      money:100000000000,
+      car:"infiniti"
+    }
+    //更换构造函数的原型对象
+    //但是必须在new子对象之前！
+    Student.prototype=father;
+    var lilei=new Student("Li Lei",18);
+    var hmm=new Student("Han Meimei",19);
+    
+    lilei.__proto__=Student.prototype;
+    hmm.__proto__=Student.prototype;
+
+    console.log(lilei);
+    console.log(hmm);
+    console.log(hmm.money, hmm.car);
+    console.log(lilei.money, lilei.car);
+
+
+function f(i){
+  if(i<3){
+    return 1;
+  }
+    return f(i-1)+f(i-2);
+}
+  </script>
+</body>
+</html>
