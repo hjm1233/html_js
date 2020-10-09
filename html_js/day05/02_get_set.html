@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+       var eric={
+           eid:1001,
+           ename:"埃瑞克",
+           eage:25
+       }
+       Object.defineProperties(eric,{
+           __eage:{
+               value:eric.eage,
+               writable:true,
+               enumerable:false,//半隐藏
+               configurable:false//禁止修改前两个属性，禁止删除
+           },
+           eage:{
+            get:function(){
+                console.log(`自动调用get()`);
+                return this.__eage;
+            },
+            set:function(value){
+                console.log(`自动调用set(),value获取值${value}`);
+                if(value>=18&&value<=65){
+                   this.__eage=value;
+                }else{
+                    throw Error("年龄必须介于18~65之间!");
+                }
+            },
+            enumerable:false,
+            configurable:false
+           }
+       })
+       eric.eage=34;
+       console.log(eric.eage);
+       console.log(eric);
+    </script>
+</body>
+</html>

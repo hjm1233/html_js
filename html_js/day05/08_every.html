@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr1=[1,2,3,4,5];
+        var arr2=[2,4,6,4,2];
+        //数组的方法every自带循环遍历，每次循环数组元素都会调用一次回调函数，并将当前遍历得到的元素的值
+        //下标，数组传给回调函数，并由回调函数返回元素是否符合条件，给予true/false
+        //                              元素 下标 数组
+        var result1=arr1.every(function(elem, i, arr){
+            //判断是否都为偶数
+            return elem%2==0;
+        })
+        var result2=arr2.every(function(elem,i,arr){
+            //判断是否都为偶数
+            return elem%2==0;
+        })
+        console.log(result1,result2);
+    </script>
+</body>
+</html>

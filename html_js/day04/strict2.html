@@ -7,7 +7,7 @@
 </head>
 <body>
   <script>
-    "use strict";
+    //"use strict";
 
     var eric={
       eid:1001,
@@ -18,9 +18,23 @@
     //     定义   属性     eric的eid
     Object.defineProperty(eric,"eid",{
       //可修改 为 false —— 不可修改
-      writable:false
+      //enumerable:true
+      writable:false,
+      configurable:false
     })
-
+    // Object.defineProperty(eric,"eid",{
+    //    writable:true
+    // })
+    Object.defineProperty(eric,"eid",{
+      //configurable一旦修改为false,无法修改为true
+      writable:true,
+      configurable:true
+    })
+    //Object下的读取eric的eid属性的对象内容的方法
+    var obj=Object.getOwnPropertyDescriptor(
+      eric,"eid"
+    )
+    console.log(obj);
     eric.eid=-2;
     console.log(eric);
   </script>

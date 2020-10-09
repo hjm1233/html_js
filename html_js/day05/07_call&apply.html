@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        function jisuan(base,bonus1,bonus2){
+            console.log(`${this.ename}的总工资是${base+bonus1+bonus2}`);
+        }
+        var lilei={ename:"lilei"};
+        var hmm={ename:"hmm"};
+        //call函数做了三件事情 调用jisuan函数并立即执行
+        //将this指向call的第一个参数，如:lilei,hmm
+        //
+        var jisuan2=jisuan.bind(lilei,10000);
+        jisuan.call(lilei,10000,2000,1000);
+        jisuan.call(hmm,8000,1000,1800);
+        //apply会先将第二个参数:数组打散，然后将每个元素对应传给jisuan函数
+        //然后会将jisuan函数
+        //
+        var xd={ename:"老铁"}
+        var arr=[1000,1100,1200];
+        jisuan.apply(xd,arr);
+
+        jisuan2(1000,500);
+    </script>
+</body>
+</html>

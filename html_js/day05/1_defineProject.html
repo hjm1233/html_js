@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //本例必须在严格模式下才能看到错误！
+    "use strict";
+
+    //一个员工对象
+    var eric={
+      eid:1001,
+      ename:"埃里克",
+      salary:12000
+    }
+    //公司规定: 
+    //1. 所有员工的编号不能擅自修改
+    //2. 禁止删除员工姓名属性
+    //3. 禁止for in遍历薪资属性
+
+    //无法获得对象的属性的描述对象，无法看到开关
+    // console.log(eric.eid);
+    //可以获得eric对象的eid属性的描述对象
+    var obj=Object.getOwnPropertyDescriptor(
+      eric, "eid"
+    )
+    console.log(obj);
+    //想保护eid属性只读！
+    //错误：
+    //eric.eid.writable=false;
+    //正确: 
+    //(重新)定义  属性     eric的eid属性
+
+
+    // Object.defineProperty(eric,"eid",{
+    //   //不可修改
+    //   writable:false,
+    //   configurable:false //禁止修改writable
+    // })
+    // //设置ename属性禁止删除
+    // Object.defineProperty(eric,"ename",{
+    //   writable:true,
+    //   configurable:false
+    // })
+    // //设置salary属性禁止for in遍历
+    // Object.defineProperty(eric,"salary",{
+    //   writable:false,
+    //   enumerable:false,
+    //   configurable:false
+    // })
+    Object.defineProperties(eric,{
+      eid:{
+      //不可修改
+      writable:false,
+      configurable:false //禁止修改writable
+      },
+      ename:{
+      writable:true,
+      configurable:false
+      },
+      salary:{
+      writable:false,
+      enumerable:false,
+      configurable:false
+      }
+    })
+    //尝试把eid属性的writable开关重新打开
+    Object.defineProperty(eric,"eid",{
+      writable:true,
+      configurable:true
+    })//报错： Cannot redefine property: eid
+    //尝试修改员工编号
+    //eric.eid=-2;//报错： Cannot assign to read only property 'eid'
+    //尝试删除ename属性: 
+    //delete eric.ename;//报错: Cannot delete property 'ename'
+    //尝试用for in遍历eric的所有属性值，包括薪资
+    for(var key in eric){
+      if(key=="ename")
+      {eric[key]="hjm";}
+      console.log(`${key} : ${eric[key]}`)
+    }
+    console.log(eric);
+    //虽然salary不能被for in遍历，但是用.依然可以强行访问！
+    console.log(`eric的薪资是:${eric.salary}`)
+  </script>
+</body>
+</html>

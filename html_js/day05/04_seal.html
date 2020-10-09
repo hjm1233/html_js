@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        "use strict";
+        var eric={
+            eid:1001,
+            ename:"埃瑞克",
+            eage:23
+        }
+        Object.seal(eric);
+        // Object.defineProperties(eric,{
+        //     eid:{
+        //         writable:false
+        //     },
+        //     ename:{
+        //         enumerable:false
+        //     }
+        // })
+        eric.eid=-2;
+        console.log(eric);
+    </script>
+</body>
+</html>

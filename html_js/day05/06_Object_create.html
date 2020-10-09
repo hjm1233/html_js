@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var father={
+           car:"infinite",
+           money:1000000000000
+        }
+        //var son=Object.create(father);
+        var son={};
+        son.__proto__=father;
+
+        // var hmm=Object.create(father,{
+        // phone:{
+        //     value:"iphone 12",
+        //     writable:true,
+        //     enumerable:true,
+        //     configurable:false
+        // }
+        // });
+        var next_son={};
+        next_son.__proto__=father;
+        Object.defineProperties(next_son,{
+            phone:{
+                value:"iphone 12",
+                writable:true,
+                enumerable:true,
+                configurable:false
+            }
+        })
+        console.log(next_son);
+        console.log(Object.getOwnPropertyDescriptor(next_son,"phone"));
+        //console.log(son);
+        
+    </script>
+</body>
+</html>

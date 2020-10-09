@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        "use strict";
+        var eric={
+            eid:1001,
+            ename:"埃瑞克",
+            eage:25
+        }
+        //不但禁止修改eid属性
+        Object.defineProperty(eric,"eid",{
+          writable:false
+        })
+        //而且，禁止给eric对象添加任何新属性
+        Object.preventExtensions(eric);
+        //尝试修改eid属性
+        //eric.eid=-2;
+        //尝试给eric添加新属性
+        eric.Eid=-2;//严格模式下 报错: Cannot add property Eid, object is not extensible
+        console.log(eric);
+    </script>
+</body>
+</html>
