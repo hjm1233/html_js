@@ -13,6 +13,7 @@
             this.sname=sname;
             this.sage=sage;
         }
+        //查看Student的结构
         console.dir(Student);
 
         Student.prototype.intr=function(){
@@ -28,9 +29,8 @@
         console.log(lilei.sage);
 
         Array.prototype.sum=function(){
-              
-            for(var i=0,sums=0;i<this.length;i++){
-                sums+=this[i];
+          for(var i=0,sums=0;i<this.length;i++){
+              sums+=this[i];
             }
             return sums;
         }

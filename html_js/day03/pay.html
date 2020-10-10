@@ -14,10 +14,9 @@
         function parent(){
             var total=1000;
             return function(money){
-                total=-money;
+                total-=money;
                 console.log(`花了${money},还剩${total}`);
             }
-
         }
         var pay=parent();
         //为什么total在pay函数执行后不会消失？
