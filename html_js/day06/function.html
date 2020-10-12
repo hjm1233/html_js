@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var t=0;//在全局定义一个变量，累加每个函数的执行时间
+    function fun1(){
+      console.log(`fun1执行耗时0.3s`);
+      t+=0.3;
+    }
+    function fun2(){//是作用域
+      //var _t;//因为变量名不同，所以对t+=0.8
+      console.log(`fun2执行耗时0.8s`);
+      t+=0.8;
+
+      //在某次代码更新过程中，无意中添加了以下代码
+      //不会执行的代码
+      if(false){//不是作用域
+        //两个办法: 
+        //1. 修改变量名
+        //var _t=new Date();
+        //2. 匿名函数自调方式，划分临时作用域
+        (function(){//是作用域
+          var t=new Date();
+          console.log(`今天是${t.toLocaleString()}`);
+        })();
+        var a=10;
+      }
+    }
+    fun1();//t+=0.3
+    fun2();//t+=0.8
+    console.log(`共耗时${t}s`);//0.3+0.8=1.1
+  </script>
+</body>
+</html>

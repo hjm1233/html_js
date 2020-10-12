@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var lilei={
+      sname:"Li Lei",
+      friends:["亮亮","然然","东东"],
+      intr:()=>{//把墙拆了
+        //Li Lei认识亮亮
+        //Li Lei认识然然
+        //Li Lei认识东东
+        //遍历friends数组中每个人名
+        //因为intr()的墙也被拆了，这里的this直接冲出intr()范围。
+        //又因为var lilei对象的{}，本来就不是作用域，不是墙，所以拦不住this
+        //所以，外部的this最终直接指向全局window
+        //导致intr()内两个this都指向window！全错了！
+        this.friends.forEach(
+          //因为改成箭头函数，把墙拆了，所以内部的this指向外部的this
+          elem=>console.log(`${this.sname} 认识 ${elem}`)
+        )
+      }
+    }
+    lilei.intr();
+  </script>
+</body>
+</html>

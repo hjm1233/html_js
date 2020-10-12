@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var t=0;//在全局定义一个变量，累加每个函数的执行时间
+    function fun1(){
+      console.log(`fun1执行耗时0.3s`);
+      t+=0.3;
+    }
+    function fun2(){//是作用域，拦住var t;
+      console.log(`fun2执行耗时0.8s`);
+      t+=0.8;//程序执行到这里时，还不知道if(){}块内还有一个t变量，所以这里的t+=0.8，是加到全局变量t上的！
+
+      //在某次代码更新过程中，无意中添加了以下代码
+      //不会执行的代码
+      if(false){//let让if后的{}也成为一级作用域，就能拦住变量t，不影响外部！
+        //let不会被声明提前
+        let t=new Date();
+        console.log(`今天是${t.toLocaleString()}`);
+      }
+    }
+    fun1();//t+=0.3
+    fun2();//t+=0.8
+    console.log(`共耗时${t}s`);//0.3+0.8=1.1
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var lilei={
+      sname:"Li Lei",
+      friends:["亮亮","然然","东东"],
+      intr:function(){//作用域
+        //Li Lei认识亮亮
+        //Li Lei认识然然
+        //Li Lei认识东东
+        //遍历friends数组中每个人名
+        //因为这个this属于intr()，而将来intr()是被lilei.intr()调用的。所以这个this->lilei，是正确的！
+        this.friends.forEach(
+          //箭头函数的特异功能: 让箭头函数内部的this与外部的this保持一致！
+          //本例中: 内部this->外部的this->lilei
+          //都正确了！
+          elem=>console.log(`${this.sname} 认识 ${elem}`)
+          //function(elem){//作用域
+            //...this.sname...
+          //}
+        )
+      }
+    }
+    lilei.intr();
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var lilei={
+      sname:"Li Lei",
+      friends:["亮亮","然然","东东"],
+      intr(){//即简化了function，又没有改变作用域，也不影响内部的this
+        //Li Lei认识亮亮
+        //Li Lei认识然然
+        //Li Lei认识东东
+        //遍历friends数组中每个人名
+        //因为将来intr()被lilei.调用，所以这里的this->lilei
+        this.friends.forEach(
+          //因为改成箭头函数，把墙拆了，所以内部的this指向外部的this，都指向lilei了！
+          //都对了！
+          elem=>console.log(`${this.sname} 认识 ${elem}`)
+        )
+      }
+    }
+    lilei.intr();
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=["亮亮","然然","东东"];
+        arr.forEach(function(elem){
+           console.log(`${elem}-到!`);
+        });
+        var total=0;
+        function add(){
+            for(var num of arr){
+                total+=num;
+            }
+            return total;
+        }
+        console.log(add(1,2,3));
+        console.log(add(1,2,3,4,5));
+    </script>
+</body>
+</html>
