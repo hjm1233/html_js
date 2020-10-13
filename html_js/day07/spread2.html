@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //复制一个数组
+    var arr1=[1,2,3,4,5];
+    var arr2=[...arr1];
+    console.log(arr2);//1,2,3,4,5
+    console.log(arr2==arr1);//false 地址不同
+    //拼接多个数组为一个大的数组
+    var arr1=[1,2,3];
+    var arr2=[5,6,7];
+    var arr3=[...arr1,4,...arr2,8];
+    console.log(arr3);
+    //复制一个对象
+    var lilei={
+      sname:"Li Lei",
+      sage:11
+    };
+    var lilei2={...lilei};
+    console.log(lilei2);
+    console.log(lilei2==lilei);//false
+    //合并多个对象为一个大的对象
+    var obj1={x:1,y:2};
+    var obj2={i:4,j:5};
+    var obj3={
+      ...obj1,
+      z:3,
+      ...obj2,
+      k:6
+    }
+    console.log(obj3);
+  </script>
+</body>
+</html>

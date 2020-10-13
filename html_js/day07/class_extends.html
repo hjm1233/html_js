@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //创建公共父类型class
+    class Flyer{
+      constructor(x,y){
+        this.x=x;
+        this.y=y;
+      }
+      fly(){
+        console.log(`飞到${this.x},${this.y}的位置`);
+      }
+    }
+    //创建一个子类型
+    class Plane extends Flyer{
+      constructor(x,y,score){
+        super(x,y);
+        this.score=score;
+      }
+      getScore(){
+        console.log(`击落敌机，得${this.score}分`)
+      }
+    }
+    //创建另一个子类型
+    class San extends Flyer{
+      constructor(x,y,award){
+        super(x,y);
+        this.award=award;
+      }
+      getAward(){
+        console.log(`打掉空投，得${this.award}奖励`)
+      }
+    }
+    //创建一个敌机类型的子对象
+    var p1=new Plane(50,100,5);
+    console.log(p1);
+    p1.fly();
+    p1.getScore();
+    //创建一个空投类型的子对象
+    var s1=new San(0,50,"1 life");
+    console.log(s1);
+    s1.fly();
+    s1.getAward();
+  </script>
+</body>
+</html>

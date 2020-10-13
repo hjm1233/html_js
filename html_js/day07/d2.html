@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //定义函数，点套餐
+    function order(zhushi="香辣鸡腿堡", xiaochi="辣翅", yinliao="可乐"){
+      console.log(`您点的套餐是: 
+        主食:${zhushi},
+        小吃:${xiaochi},
+        饮料:${yinliao}
+      `)
+    }
+    //第一个人不着急，每个都挑
+    order("香辣鸡腿堡","辣翅","可乐");
+    //第二个人着急，不挑，就选默认套餐搭配
+    order();
+    //第三个人只想换主食，小吃和饮料保持默认
+    //给了第一个实参值，没给后两个实参值——支持
+    order("奥尔良烤腿堡");
+    //第四个人只想换饮料，主食和小吃保持默认
+    //不给前两个实参值，只给最后一个实参值——不支持
+    //错误1: 
+    // order("咖啡");
+    //错误2: 
+    // order(,,"咖啡");
+    //不好:
+    // order(undefined, undefined, "咖啡");
+
+  </script>
+</body>
+</html>

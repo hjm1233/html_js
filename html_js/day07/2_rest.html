@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        //剩余参数
+        var jisuan=(ename,...arr)=>{
+          var total=0;
+          for(var money of arr){
+              total+=money;
+          }
+          console.log(`${ename}的工资是${total}`);
+        }
+        jisuan("hmm",1010,1020,1030);
+        jisuan("lilei",1020,1030,1040);
+
+        //spread
+        var arr=[2,6,3,4,1,8,6];
+        console.log(Math.max(...arr));
+        console.log(Math.min(...arr));
+        
+        //spread2
+        var arr_spread2_1=[1,2,3,4];
+        var arr_spread2_2={...arr_spread2_1};
+        console.log(arr_spread2_2);
+        console.log(arr_spread2_1==arr_spread2_2);
+
+        //destruct解构
+        var arr=[2010,10,12];
+        var [y,m,d]=arr;
+        console.log(`
+        今天是${y}年${m}月${d}日
+        `);
+        
+        //destruct_obj解构
+        
+    </script>
+</body>
+</html>

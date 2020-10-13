@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //js中Math对象有两个函数
+    console.log(Math.max(2,7,3,5));//7
+    console.log(Math.min(2,7,3,5));//2
+    //如果多个数字是放在一个数组中的
+    var arr=[2,7,3,5];
+    console.log(Math.max(arr));//NaN
+    console.log(Math.min(arr));//NaN
+    //结论:Math.max()和Math.min()不支持获得数组中的最大值和最小值
+    //解决: 如果可以把数组先打散，再传给Math.max()和Math.min()就可获得最大值和最小值了
+    //不好的做法: 
+    console.log(Math.max.apply(null,arr));
+    console.log(Math.min.apply(null,arr));
+    //apply先把arr打散为多个值，再传入max
+    //但是, apply本职工作是替换this，顺便打散数组，所以必须提供第一个实参值，代替this。而本例中，需求与this无关！——矛盾
+    //好的做法: 
+    console.log(Math.max(...arr));
+    console.log(Math.min(...arr));
+  </script>
+</body>
+</html>

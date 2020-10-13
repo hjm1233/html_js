@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //定义函数，模拟亮跑步
+    function liang(xiaoche){
+      console.log(`亮起跑...`);
+      setTimeout(function(){//异步
+        console.log(`亮到达终点！`);
+        //当亮到达终点后，才调用xiaoche里的东西
+        xiaoche();
+      },6000);//亮起跑后，经过6s，到达终点
+    }
+    //定义函数，模拟然跑步
+    function ran(xiaoche){
+      console.log(`然起跑...`);
+      setTimeout(function(){//异步
+        console.log(`然到达终点！`)
+        //当然到达终点后，才调用小车里的东西
+        xiaoche();
+      },4000);//然起跑后，经过4s，到达终点
+    }
+    //定义函数，模拟东跑步
+    function dong(xiaoche){
+      console.log(`东起跑...`);
+      setTimeout(function(){//异步
+        console.log(`东到达终点！`)
+        //当东到达终点后，才调用xiaoche里的东西
+        xiaoche();
+      },2000);//东起跑后，经过2s，到达终点
+    }
+    //错误
+    // liang();//6s
+    // ran();//4s
+    // dong();//2s
+    //整个程序6s结束
+    //正确： 
+    liang(
+      //xiaoche=
+      function(){//回调函数: 定义了一个函数给了liang的xiaoche形参变量暂存，暂不执行
+        ran(
+          function(){//->ran的xiaoche
+            dong(
+              function(){//->dong的xiaoche
+                console.log(`比赛结束！`)
+              }
+              //当dong 2s后到达终点
+              //会自动调用xiaoche()
+              //其实就是调用xiaoche里的比赛结束
+            );
+          }
+          //当ran 4s后到达终点
+          //会自动调用xiaoche()
+          //其实就是调用xiaoche里的dong()
+        );
+      }
+      //当liang 6s后到达终点
+      //会自动调用xiaoche();
+      //其实就是调用xiaoche里的ran();
+    );
+    //经过12s比赛结束！
+  </script>
+</body>
+</html>

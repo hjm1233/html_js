@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //定义一个函数，计算任意多个数字的和
+    //  add(   1,2,3   )
+    var add=(  ...arr  )=>{
+    //       \收集实参 /
+    //var arr=[1,2,3 ]
+      var total=0;
+      for(var num of arr){
+        total+=num;
+      }
+      return total;
+    }
+    console.log(add(1,2,3));//6
+    console.log(add(1,2,3,4,5));//15
+  </script>
+</body>
+</html>

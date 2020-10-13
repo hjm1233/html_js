@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //定义一个计算薪资的函数
+    //要求先传入员工姓名,必须
+    //之后有几项工资，不确定
+    //       "Li Lei"| 剩余->
+    //           ↓    \↓ ↓ ↓/
+    var jisuan=(ename,...arr)=>{
+      var total=0;
+      for(var money of arr){
+        total+=money;
+      }
+      console.log(`${ename}的总工资是${total}`)
+    }
+    jisuan("Li Lei", 10000, 1000, 2000);
+    jisuan("Han Meimei", 2000,3000,4000,5000,1000)
+  </script>
+</body>
+</html>

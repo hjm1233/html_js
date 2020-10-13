@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+        //单参数设置默认值
+        function intr(str="这个人很懒，什么都没有留下"){
+            console.log(`我的自我介绍是:${str}`);
+        }
+        intr("糖糖伪君子");
+        intr();
+        //多参数设置默认值
+        function order(zhushi="墨西哥鸡肉卷",xiaochi="香辣鸡腿堡",yinliao="可乐"){
+           console.log(`你点的套餐是:
+               主食:${zhushi},
+               小吃:${xiaochi},
+               饮料:${yinliao}
+           `);
+        }
+        order("薯条","鲜虾堡","奶茶");
+        order();
+    </script>
+</body>
+</html>

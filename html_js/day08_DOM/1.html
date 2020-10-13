@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //定义函数，模拟亮跑步
+    function liang(){
+      console.log(`亮起跑...`);
+      setTimeout(function(){//异步
+        console.log(`亮到达终点！`);
+      },6000);//亮起跑后，经过6s，到达终点
+    }
+    //定义函数，模拟然跑步
+    function ran(){
+      console.log(`然起跑...`);
+      setTimeout(function(){//异步
+        console.log(`然到达终点！`)
+      },4000);//然起跑后，经过4s，到达终点
+    }
+    //定义函数，模拟东跑步
+    function dong(xiaoche){
+      console.log(`东起跑...`);
+      setTimeout(function(){//异步
+        console.log(`东到达终点！`)
+      },2000);//东起跑后，经过2s，到达终点
+    }
+    //错误
+    liang();//6s
+    ran();//4s
+    dong();//2s
+    //整个程序6s结束
+    
+  </script>
+</body>
+</html>

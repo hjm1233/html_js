@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //定义函数，模拟亮跑步
+    function liang(){
+      return new Promise(
+        //     赠 ↓
+        function(door){
+          console.log(`亮起跑...`);
+          setTimeout(function(){//异步
+            console.log(`亮到达终点！`);
+            //等亮到达终点后，才开门！
+            door();
+          },6000);//亮起跑后，经过6s，到达终点
+        }
+      )
+      
+    }
+    //定义函数，模拟然跑步
+    function ran(){
+      return new Promise(
+        //     赠 ↓
+        function(door){
+          console.log(`然起跑...`);
+          setTimeout(function(){//异步
+            console.log(`然到达终点！`);
+            //等然到达终点后，才开门！
+            door();
+          },4000);//然起跑后，经过4s，到达终点
+        }
+      )
+      
+    }
+    //定义函数，模拟东跑步
+    function dong(){
+      return new Promise(
+        //     赠 ↓
+        function(door){
+          console.log(`东起跑...`);
+          setTimeout(function(){//异步
+            console.log(`东到达终点！`);
+            //等东到达终点后，才开门！
+            door();
+          },2000);//东起跑后，经过2s，到达终点
+        }
+      )
+      
+    }
+    liang()
+    .then(ran)
+    .then(dong)
+    .then(function(){
+      console.log(`比赛结束！`)
+    });
+  </script>
+</body>
+</html>
