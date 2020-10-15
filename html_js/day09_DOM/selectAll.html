@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>全选和取消全选</title>
+</head>
+<body>
+	<h2>管理员列表</h2>
+	<table border="1px" width="500px">
+	  <thead>
+		<tr>
+			<th><input type="checkbox"/>全选</th>
+			<th>管理员ID</th>
+			<th>姓名</th>
+			<th>操作</th>
+		</tr>
+	  </thead>
+	  <tbody>
+	  	<tr>
+	  		<td><input type="checkbox"/></td>
+	  		<td>1</td>
+	  		<td>Tester</td>
+	  		<td>修改 删除</td>
+	  	</tr>
+	  	<tr>
+	  		<td><input type="checkbox"/></td>
+	  		<td>2</td>
+	  		<td>Manager</td>
+	  		<td>修改 删除</td>
+	  	</tr>
+	  	<tr>
+	  		<td><input type="checkbox"/></td>
+	  		<td>3</td>
+	  		<td>Analyst</td>
+	  		<td>修改 删除</td>
+	  	</tr>
+	  	<tr>
+	  		<td><input type="checkbox"/></td>
+	  		<td>4</td>
+	  		<td>Admin</td>
+	  		<td>修改 删除</td>
+	  	</tr>
+	  </tbody>
+	</table>
+	<button>删除选定</button>
+  <script>
+		/*功能1. 点全选，选择下方所有的checkbox*/
+		//DOM 4步
+		//1. 查找触发事件的元素
+		//本例中: 用户点击thead中的input触发全选
+		var chbAll=document.querySelector(
+			"thead input"
+		);
+		//2. 绑定事件处理函数
+		chbAll.onclick=function(){
+			//this->当前点的全选按钮chbAll
+			//3. 查找要修改的元素
+			//本例中: 点全选，要修改tbody中每行第一个td中input
+			var chbs=document.querySelectorAll(
+				"tbody td:first-child>input"
+			);
+			console.dir(chbs);
+			//4. 修改元素
+			//遍历tbody中的每个checkbox
+			for(var chb of chbs){
+				//每遍历一个checkbox，就让当前checkbox的选中状态与thead中的全选按钮的选中状态保持一致
+				chb.checked=this.checked;
+			}
+		}
+
+		/*功能2. 点击下方某一个checkbox也可能影响上方的全选按钮*/
+		//DOM 4步
+		//1. 查找触发事件的元素
+		//本例中: 因为tbody中每checkbox都可点击
+		var chbs=document.querySelectorAll(
+			"tbody td:first-child>input"
+		);
+		console.log(chbs);
+		//2. 绑定事件处理函数
+		//本例中: 遍历找到的每个checkbox
+		for(var chb of chbs){
+			//为每个checkbox绑定单击事件
+			chb.onclick=function(){
+				//3. 查找要修改的元素
+				//本例中: 无论点下方哪个checkbox，都会影响上方一个全选checkbox
+				var chbAll=document.querySelector(
+					"thead input"
+				);
+				//4. 修改元素
+				//尝试去查找tbody中未选中的input
+				//因为找到一个和找到多个未选中的input，结论是一样的！就是不全选！所以我找一个就足够了！
+				var unchecked=document.querySelector(
+					"tbody td:first-child>input:not(:checked)"
+				);
+				//如果找到未选中的checkbox，上边的chbAll就不全选
+				if(unchecked!=null){
+					chbAll.checked=false;
+				}else{//如果没找到未选中的checkbox，上边的chbAll就全选
+					chbAll.checked=true;
+				}
+			}
+		}
+	</script>
+</body>
+</html>

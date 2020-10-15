@@ -1,0 +1,82 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>动态创建表格</title>
+  <meta charset="utf-8" />
+  <style>
+    table {
+      width: 600px;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    td,
+    th {
+      border: 1px solid #ccc
+    }
+  </style>
+</head>
+<body>
+  <div id="data">
+    <table>
+      <thead>
+        <tr>
+          <th>ename</th>
+          <th>salary</th>
+          <th>age</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <script>
+    var json = [
+      { "ename": "Tom", "salary": 11000, "age": 25 },
+      { "ename": "John", "salary": 13000, "age": 28 },
+      { "ename": "Mary", "salary": 12000, "age": 25 }
+    ];
+
+    //先查找table
+    var table=document.querySelector("#data>table");
+    //向table中添加一个tbody
+    var tbody=document.createElement("tbody");
+    table.appendChild(tbody);
+    //遍历json数组中每个员工对象
+    for(var emp of json){
+      //每遍历一个员工对象，就要创建tr，添加到tbody下
+      var tr=document.createElement("tr");
+      tbody.appendChild(tr);
+      //遍历当前员工对象中每个属性
+      for(var key in emp){
+        //每遍历一个属性，就创建一个td，添加到tr下
+        var td=document.createElement("td");
+        tr.appendChild(td);
+        //设置当前td的内容为当前员工对象emp的当前属性值
+        td.innerHTML=emp[key]; //复习js高级day04->2.3
+      }
+    }
+
+    var json=[
+      { "ename":"Tom","salary":1000,"age":20},
+      { "ename":"Jack","salary":1100,"age":21},
+      { "ename":"Mack","salary":1200,"age":22}
+    ];
+
+    var table=document.querySelector("#data>table");
+    var tbody=document.createElement("tbody");
+    //table.appendChild(tbody);  tbody已经加入table中，每次修改tbody页面都会重新渲染
+    for(var emp of json){
+      var tr=document.createElement("tr");
+      tbody.appendChild(tr);
+    for(var key in emp){
+       var td=document.createElement("td");
+       tr.appendChild(td);
+       td.innerHTML=emp[key];
+    }
+    }
+    table.appendChild(tbody);//tbody最后才加入table中，每次修改tbody只会影响tbody的结构
+
+  </script>
+</body>
+
+</html>

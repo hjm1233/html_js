@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style type="text/css"> 
+         li{
+             margin: 0;
+             list-style: none;
+             display: inline;
+             padding: 3px 6px 3px;
+             background-color: #ffa;
+             justify-content: left;
+         }
+         li a{
+             text-decoration: none;
+         }
+         ul{
+             display: flex;
+             margin: 0;
+         }
+         .tabs{
+             margin-left: 40px;
+             display: none;
+         }
+         .tab_content [tab="active"]{
+             display: block;
+         }
+     </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#tab1">选项1</a></li>
+        <li><a href="#tab2">选项2</a></li>
+        <li><a href="#tab3">选项3</a></li>
+        <li><a href="#tab4">选项4</a></li>
+    </ul>
+    <div class="tab_content">
+        <div id="tab1" class="tabs" tab="active">
+             <p style="color: green;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore tempora eligendi iusto enim itaque, beatae eveniet rerum cum ad libero pariatur quas molestiae quam repudiandae amet, fugit qui a maxime!</p>
+        </div>
+        <div id="tab2" class="tabs" tab="">
+            <p style="color: red;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eos doloribus exercitationem recusandae cupiditate voluptatem perspiciatis, quam quia, vitae officia quidem molestias eum doloremque praesentium ipsa. Quos perferendis explicabo officia.</p>
+        </div>
+        <div id="tab3" class="tabs" tab="">
+            <p style="color: yellow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum dolorem qui molestiae quis neque deserunt adipisci iusto tempore labore iste suscipit porro nulla, cupiditate architecto beatae consectetur deleniti earum rerum.</p>
+        </div>
+        <div id="tab4" class="tabs" tab="">
+            <p style="color: blue;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur illum nobis cupiditate, reprehenderit sed consectetur. Quia porro, cupiditate delectus excepturi inventore id, cumque laboriosam eveniet hic itaque amet provident non!</p>
+        </div>
+    </div>
+    
+    <script>
+        var links=document.querySelectorAll("ul>li>a");
+        for(var link of links){
+            link.onclick=function(){
+                var tabs=document.querySelectorAll("[tab]");
+                for(var tab of tabs){
+                    tab.setAttribute("tab","");
+                }
+                document.getElementById(this.href.split("#")[1]).setAttribute("tab","active");
+            }
+        }
+    </script>
+</body>
+</html>

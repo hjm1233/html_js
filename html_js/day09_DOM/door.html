@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+         #d1,#d2,#d3{
+           float: left;
+           background-color: yellow;
+           color: red;
+           font-size: 24px;
+           font-family: STSong;
+           width: 100px;
+           height: 200px;
+           text-align: center;
+           line-height: 200px;
+         }
+         #d2{
+             background-color: green;
+             width: 50px;
+         }
+     </style>
+</head>
+<body>
+    <div id="d1" style="display: none;">树形列表</div>
+    <div id="d2">&lt;&lt;</div>
+    <div id="d3">内容主体</div>
+
+    <script>
+        var d2=document.getElementById("d2");
+        d2.onclick=function(){
+            var d1=document.getElementById("d1");
+            if(d2.innerHTML=="&gt;&gt;"){
+                d1.style.display="none";
+                d2.innerHTML="&lt;&lt;"
+            }else{
+                d1.style.display="block";
+                d2.innerHTML="&gt;&gt;"
+            }
+        }
+
+    </script>
+</body>
+</html>

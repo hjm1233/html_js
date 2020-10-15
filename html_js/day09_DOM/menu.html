@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style type="text/css">
+    li{
+		list-style:none;
+	}
+	li span{
+		padding-left: 20px;
+		cursor: pointer;
+		background: url("./images/add.png") no-repeat center left;
+	}
+	/*所有ul默认本来都是隐藏的*/
+	li ul{
+		display: none; 
+	}
+	/*只是将span的+换成-*/
+	.open{ 
+		background: url("./images/minus.png") no-repeat center left; 
+	}
+	/*预案: 如果一个ul是open的下一个兄弟，这个ul就显示*/
+	.open+ul{ 
+		display: block; 
+	}
+</style>
+    
+</head>
+<body>
+    <ul class="tree">
+        <li>
+            <span class="open">span1</span>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </li>
+        <li>
+            <span>span2</span>
+            <ul>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </li>
+        <li>
+            <span>span3</span>
+            <ul>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+
+        var spans=document.querySelectorAll("ul.tree>li>span");
+        for(var span of spans){
+            span.onclick=function(){
+                if(this.className=="open"){
+                    this.className="";
+                }else{
+                    // var spans=document.querySelectorAll("ul.tree>li>span");
+                    //这个应该不用再定义一次吧？
+                    for(var span of spans){
+                        span.className="";
+                    }
+                    this.className="open";
+                }
+            }
+        }
+
+        var spans=document.querySelectorAll("ul.tree>li>span");
+        for(var span of spans){
+            span.onclick=function(){
+                if(this.className=="open"){
+                    this.className="";
+                }else{
+                    for(var span of spans){
+                        span.className="";
+                    }
+                    this.className="open";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
