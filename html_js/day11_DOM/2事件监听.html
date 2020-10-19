@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8" />
+   <title>...</title>
+   <script>
+   </script>
+</head>
+
+<body>
+   <button id="btnShoot">shoot</button><br>
+   <button id="btnAward">获得跟踪导弹</button><br>
+   <button id="btnBreak">失去跟踪导弹</button><br>
+   <script>
+      var btnShoot=document.getElementById("btnShoot");
+      var btnAward=document.getElementById("btnAward");
+      var btnBreak=document.getElementById("btnBreak");
+      //给btnShoot绑定单击事件处理函数，可发射普通子弹
+      btnShoot.onclick=function(){
+         console.log(`发射普通子弹......`)
+      }
+      var arr=[];
+      //当单击btnAward时，不是发生导弹，而是给btnShoot按钮再多绑定一种跟踪导弹
+      btnAward.onclick=function(){
+         //不能再用onclick=function(){ ... }
+         // btnShoot.onclick=function(){
+         //    alert("发射跟踪导弹=>=>=>");
+         // }
+         var shoot=function(){
+            alert("发射跟踪导弹=>=>=>")
+         }
+         arr.push(shoot);
+         //想浏览器的事件监听对象的队列中添加了一个新的监听对象，元素:btnShoot, 事件名:click。
+         btnShoot.addEventListener(
+            "click",shoot
+         )
+      }
+      btnBreak.onclick=function(){
+         for(var a of arr){
+            btnShoot.removeEventListener(
+               "click",a
+         )}
+      }
+   </script>
+</body>
+
+</html>
