@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>...</title>
+	<style>
+		ul{
+			list-style:none
+		}
+		ul>li{
+			float:left;
+			border:1px solid #aaa;
+			padding:5px 10px;
+		}
+		/*用纯css实现按钮组效果*/
+		/*第一个li左上，左下变圆角*/
+		/* ul>li:first-child{
+			border-radius:5px 0 0 5px
+		} */
+		/*最后一个li右上, 右下变圆角*/
+		/* ul>li:last-child{
+			border-radius:0 5px 5px 0
+		} */
+		/*将第一li之后所有兄弟去掉左边框*/
+		/* ul>li~li{
+			border-left:0
+		} */
+		table{
+			width:400px;
+			border-collapse: collapse;
+			text-align:center;
+		}
+		table>thead{
+			border-bottom:3px solid #aaa
+		}
+		/*表格隔行变色效果*/
+
+		/*tbody中第一行之后的所有兄弟行加上边框*/
+        /* tbody>tr~tr{
+			border-top: 1px solid gray;
+		} */
+		/*偶数行变色*/
+        /* tbody>tr:nth-child(2n){
+			background-color: rgb(64, 215, 241);
+		} */
+	</style>
+	<script src="../../.JQuery/jquery-3.5.1.js"></script>
+</head>
+
+<body>
+	<h1>实现按钮组效果</h1>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+	<script>
+		/*用js实现按钮组效果*/
+		/*第一个li左上，左下变圆角*/
+		$("ul>li:first").css("border-radius","5px 0 0 5px");
+		/*最后一个li右上, 右下变圆角*/
+		$("ul>li:last").css("border-radius","0 5px 5px 0");
+		/*将第一li之后所有兄弟去掉左边框*/
+		$("ul>li:gt(0)").css("border-left",0)
+	</script>
+
+	<!-- <script>
+		$("ul>li:first").css("border-border-radius","5px 0 0 5px");
+		$("ul>li:last").css("border-border-radius","0 5px 5px 0");
+		$("ul>li:gt(0)").css("border-left",0);
+	</script> -->
+	<div style="clear:both"></div>
+
+	<h1>实现表格隔行变色效果</h1>
+	<!--table>(thead>tr>th*4)+(tbody>tr*4>td*4)-->
+	<table>
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>User Name</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>亮</td>
+				<td>成</td>
+				<td>@liang</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>然</td>
+				<td>李</td>
+				<td>@ran</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>东</td>
+				<td>张</td>
+				<td>@dong</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>华</td>
+				<td>吴</td>
+				<td>@hua</td>
+			</tr>
+		</tbody>
+	</table>
+	<script>
+
+		/*表格隔行变色效果*/
+       
+		/*tbody中第一行之后的所有兄弟行加上边框*/
+        $("tbody>tr:gt(0)").css("border-top","1px solid gray");
+		/*偶数行变色*/
+        $("tbody>tr:odd").css("background-color"," rgb(64, 215, 241)");
+	</script>
+</body>
+
+</html>

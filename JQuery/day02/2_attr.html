@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <body>
+	<h1>操作元素的属性</h1>
+	<img src="img/1.jpg" alt="1">
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+		//单击图片，切换下一张
+		var $img=$("img");
+		$img.click(function(){
+			var $this=$(this);
+			var i=parseInt($this.attr("alt"))
+			if(i<4){
+				i++;
+			}else{
+				i=1;
+			}
+			$this.attr({
+				src:`img/${i}.jpg`,
+				alt:i
+			})
+		})
+	</script>
+ </body>
+</html>
