@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="js/jquery-1.11.3.js"></script>
+  <script>
+    // $.ajax({
+    //   url:"http://localhost:3000",
+    //   success:function(weather){
+    //     document.write(`今日天气:${weather}`)
+    //   }
+    // })
+    function fun(weather){
+      console.log(weather);
+    }
+  </script>
+  <script src="http://localhost:3000">
+    //因为script的特点就是，接收到一段js代码，立刻执行！
+    //而现在的服务器端返回的，刚好是一段js语句。
+    //所以，script收到服务器端返回的js语句后，就会立刻执行！
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+		#target {
+			border: 1px solid #eee;
+			border-radius: 6px;
+			padding: 10px;
+			transition: all .5s linear;
+		}
+		/*用css实现鼠标进入变样，鼠标移出恢复*/
+		/*用js是操作不了*/
+		/* #target:hover{ 
+			border: 1px solid #aaa;
+			box-shadow: 0 0 6px #aaa;
+			background-color:red;
+			color:#fff;
+		} */
+		/*用js实现鼠标进入变样，鼠标移出恢复*/
+		/*自定义样式类*/
+		#target.hover { 
+			border: 1px solid #aaa;
+			box-shadow: 0 0 6px #aaa;
+			background-color:red;
+			color:#fff;
+		}
+	</style>
+ </head>
+ <body>
+  <h1>使用hover(fn,fn)</h1>
+
+	<h3>鼠标悬停在div上方，则突出显示；移出则取消突出显示</h3>
+	<div id="target">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi neque quae voluptatum ducimus culpa itaque maxime distinctio soluta cum cupiditate esse tenetur deserunt fuga perferendis sed veritatis asperiores. Numquam officia.</p>
+	</div>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+    // $("#target").hover(
+		// 	//当鼠标进入当前元素时，就为当前元素添加class hover
+		// 	function(){
+		// 		//$(this).addClass("hover")
+		// 		$(this).toggleClass("hover")
+		// 	},
+		// 	//当鼠标移出当前元素时，就从当前元素上删掉class hover
+		// 	function(){
+		// 		//$(this).removeClass("hover")
+		// 		$(this).toggleClass("hover")
+		// 	}
+		// )
+		$("#target").hover(
+			function(){//即给mouseenter，又给mouseleave
+				$(this).toggleClass("hover");
+			}
+		)
+	</script>
+ </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+      width: 30%;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="list">
+    <li>尼康(234)</li>
+    <li>佳能(22)</li>
+    <li>索尼(932)</li>
+    <li>宾得(11)</li>
+    <li>爱国者(3234)</li>
+    <li>欧巴(32)</li>
+    <li>海鸥(2334)</li>
+    <li>卡西欧(334)</li>
+    <li>三星(834)</li>
+    <li>松下(234)</li>
+    <li>其它品牌(2343)</li>
+  </ul>
+
+  <button data-toggle="brandlist">精简显示品牌</button>
+
+  <script src="../../.JQuery/jquery-3.5.1.js"></script>
+  <script>
+    //DOM 4步
+    //1. 查找触发事件的元素
+    //本例中: 查找按钮
+  
+    $("[data-toggle=brandlist]")
+    //2. 绑定事件处理函数
+    .click(function(){
+      //3. 查找要修改的元素
+      //本例中: 要切换显示隐藏的是>4位置且不是最后一个的所有li
+      $("#list>li:gt(4):not(:last)")
+      //4. 修改元素
+      .toggle();
+      //获得当前点击的按钮
+      var $this=$(this);
+      //如果当前按钮的内容是精简显示品牌
+      if($this.html()=="精简显示品牌"){
+        //就改为显示所有品牌
+        $this.html("显示所有品牌");
+      }else{//否则如果当前按钮的内容是显示所有品牌
+        //就改为精简显示品牌
+        $this.html("精简显示品牌");
+      }
+    })
+
+  </script>
+</body>
+
+</html>

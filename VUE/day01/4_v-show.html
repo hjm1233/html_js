@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        .alert{
+            position: fixed;
+            width: 300px;
+            height: 100px;
+            top: 50%;left: 50%;
+            margin-left: -150px;
+            margin-top: -50px;
+            background-color: red;
+            color: #fff;
+            padding: 10px;
+        }
+        .alert>a{
+            float: right;
+            text-decoration: none;
+            border: 1px solid #fff;
+            padding: 5px 10px;
+        }
+        .alert>h3{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="open()">打开对话框</button>
+       <div class="alert" v-show="show==true">
+           <a href="javascript:;" @click="close()">×</a>
+            <h3>您的浏览器版本太低，请升级浏览器</h3> 
+       </div>
+    </div>
+    <script>
+        var vm=new Vue({
+            el:"#app",
+            data:{
+               show:false
+            },
+            methods:{
+                open(){
+                  this.show=true;
+                },
+                close(){
+                  this.show=false;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

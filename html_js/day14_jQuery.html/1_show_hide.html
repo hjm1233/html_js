@@ -26,23 +26,24 @@
 	<div id="target">
 		<p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore debitis animi sint iste sequi sunt ad excepturi error labore molestiae est expedita eos nisi placeat provident dolorem quos facilis! Sapiente!</span><span>Accusamus neque id reprehenderit! Voluptatem in deleniti laboriosam commodi facere magnam impedit minima corrupti distinctio culpa amet optio natus esse. Inventore incidunt ab id perspiciatis atque minus magnam tempore harum.</span></p>
 	</div>
-	<script src="js/jquery-1.11.3.js"></script>
+	<script src="../../.JQuery/jquery-3.5.1.js"></script>
 	<script>
-	  $("#btn1").click(function(){
-      //让#target瞬间显示隐藏: 
-      var $div=$("#target");
-	  //   if($div.is(":hidden")){
-	  // 	  $div.show();
-	  //   }else{
-	  // 	  $div.hide();
-	  //   }
-	  //让#target过度显示隐藏:
-     
-      //使用上滑下滑代替显示/隐藏效果
-	  //使用淡入淡出代替显示/隐藏效果
-	  $div//.toggle(2000);
-		  //.fadeToggle(2000);
-		    .slideToggle(2000);
+		$("#btn1").click(function(){
+			//3. 查找要修改的元素
+			//本例中: 查找id为target的元素
+			var $div=$("#target")
+			//4. 修改元素: 
+			//本例中: 
+			//如果div是隐藏的，就让div显示
+			// if($div.is(":hidden")){
+			// 	$div.show(2000);
+			// }else{//否则如果div是显示的，就让div隐藏
+			// 	$div.hide(2000);
+			// }
+			$div//.toggle(2000);
+				//.fadeToggle(2000);
+				.slideToggle(2000);
+		});
 	</script>
  </body>
 </html>

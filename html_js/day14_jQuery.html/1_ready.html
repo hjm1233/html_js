@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+  <script src="js/jquery-1.11.3.js"></script>
+  <script>
+    window.onload=function(){
+      alert("整个页面内容加载完成!")
+    }
+  </script>
+  <script src="14_ready.js">
+    //window.addEventListener("DOMContentLoaded",function(){
+      //$("#btn1").click(...)
+    //}
+  </script>
+  <script src="14_ready2.js">
+    //window.addEventListener("DOMContentLoaded",function(){
+      //$("#btn2").click(...)
+    //}
+  </script>
+ </head>
+ <body>
+  <h1>页面加载完成事件</h1>
+	<button id="btn1">click me1</button>
+  <button id="btn2">click me2</button>
+ </body>
+</html>
+<!--触发window.onload事件处理函数,自动执行其中的两句事件绑定代码-->

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+  </style>
+</head>
+
+<body>
+
+  <ul id="list">
+    <li>98</li>
+    <li>85</li>
+    <li>33</li>
+    <li>99</li>
+    <li>52</li>
+  </ul>
+
+  <script src="../../.JQuery/jquery-3.5.1.js"></script>
+  <script>
+    //回顾:js中的arr.forEach()
+    var arr = ["亮亮", "然然", "东东"]
+    //              当前姓名字符串
+    //                    ↓
+    arr.forEach(function (elem) {
+      console.log(`${elem} - 到！`)
+    })
+
+    var arr=["亮亮","然然","东东"];
+    arr.forEach(function(elem){
+      console.log(`${elem}-到!`)
+    })
+    $("ul>li").each(function(i,elem){
+      console.log(`自动调用了一次回调函数`);
+      console.log(elem);
+      var $elem=$(elem);
+      var score=parseInt($elem.html());
+      if(score<60){
+        score+=10;
+        $elem.html(score);
+      }else if(score>=90){
+        $elem.css("backgroundColor","green");
+      }
+    })
+
+  //请给每个不足60分的成绩+10分，并将超过90分的成绩用绿色背景标识出来
+    $("ul>li").each(function(i,elem){
+      console.log(`自动调用了一次回调函数`);
+      console.log(elem);
+      //需要将取出的每个DOM元素对象，再包装成jq对象，才能继续调用简化版函数！
+      var $elem=$(elem);
+      //先获得当前元素中保存的成绩，转为整数
+      // var score=parseInt(elem.innerHTML);
+      var score=parseInt($elem.html());
+      //如果成绩<60分，就+10分，然后再放回当前元素中
+      if(score<60){
+        score+=10;
+        // elem.innerHTML=score;
+        $elem.html(score);
+      }else if(score>=90){//否则如果成绩>=90分，就让当前元素背景变绿
+        // elem.style.backgroundColor="green";
+        $elem.css("backgroundColor","green");
+      }
+    })
+  </script>
+</body>
+
+</html>

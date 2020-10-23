@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <button id="call">打招呼</button>
+    <button id="btn">添加对话</button>
+    <script>
+        var btn=document.getElementById("btn");
+        var call=document.getElementById("call");
+        btn.onclick=function(){
+            call.addEventListener("click",function(){
+                console.log("你好!");
+            })
+            call.addEventListener("click",function(){
+                    console.log("こんにちは！(叩尼吉瓦)");
+            })
+        }
+        
+        
+    </script>
+
+</body>
+</html>
