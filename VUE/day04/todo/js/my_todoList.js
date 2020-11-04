@@ -1,0 +1,9 @@
+Vue.component("todo-list",{
+    template:`<ul>
+    <li><todo-item></todo-item></li>
+    <li><todo-item></todo-item></li>
+    <li><todo-item></todo-item></li>
+    </ul>
+    `,
+    components:{todoItem}
+})

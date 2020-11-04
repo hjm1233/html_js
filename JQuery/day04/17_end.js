@@ -8,6 +8,7 @@ http.createServer((req,res)=>{
   res.write(`${callback}('${weather}')`);
   res.end();
 }).listen(3000);
+
 //1. 右键点击16_server.js文件,选择在集成终端中打开
 //2. 在弹出窗口中，等待出现输入提示符后，输入node 16_server.js
 //3. 不用等待任何输出，直接打开浏览器，地址栏中输入http://localhost:3000按回车

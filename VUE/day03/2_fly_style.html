@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+  <style>
+    img{
+      position:fixed;
+      left:50%;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!--           属性名      变量-->
+    <!--           不能自定义   可自定义-->
+    <img :style="img1Style" src="img/p3.png">
+    <img :style="img2Style" src="img/p5.png">
+
+    <img src="img/p3.png" :style="img1Style" alt="">
+    <img src="img/p5.png" :style="img2Style" alt="">
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{
+        img1Style:{
+          left:"50%",
+          marginLeft:"-200px",
+          bottom:"25px",
+        },
+        img2Style:{
+          marginLeft:"100px",
+          bottom:"100px"
+        }
+      }
+    })
+  </script>
+</body>
+</html>

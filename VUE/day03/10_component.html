@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li>
+        <my-counter></my-counter>
+      </li>
+      <li>
+        <my-counter></my-counter>
+      </li>
+      <li>
+        <my-counter></my-counter>
+      </li>
+    </ul>
+
+    <div>
+      <button @click="minus">-</button>
+      <span>{{n}}</span>
+      <button @click="add">+</button>
+    </div>
+  </div>
+  <script>
+    //因为界面中修改数量部分经常被重用，所以应该下封装为一个组件，再在界面中反复使用组件
+    //创建一个组件: 
+
+    Vue.component("my-counter",{
+      //组件其实就是一个缩微的new Vue()
+      //麻雀虽小五脏俱全！
+      //1 做界面：和new Vue()做界面过程一样
+      //模板: 一次定义，反复生成一模一样的副本！
+      //1.1 也找可能发生变化的位置
+      //本例中: span的内容可能发生变化
+      //1.2 也找触发事件的元素
+      //本例中: 两个button可能触发事件
+      template:`<div>
+        <button @click="minus">-</button>
+        <span>{{n}}</span>
+        <button @click="add">+</button>
+      </div>`,
+      //2. 创建模型: 大致和new Vue()相同
+      data(){//变为一个函数
+        return {//相当于之前的data:{}
+          //因为界面中需要一个变量
+          n:0
+        }
+      },
+      methods:{ //和以前没有差别
+        //因为界面中需要2个函数
+        add(){
+          this.n++;
+        },
+        minus(){
+          if(this.n>0){
+            this.n--
+          }
+        }
+      }
+    })
+
+    //必须加new Vue()
+    new Vue({//扫描页面，识别vue的各种功能！
+      el:"#app"
+    })
+  </script>
+</body>
+</html>

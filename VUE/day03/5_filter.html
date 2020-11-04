@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h3>性别:{{sex | sexFilter}}</h3>
+  </div>
+
+  <script>
+    //1. 创建过滤器
+    Vue.filter("sexFilter",function(oldVal){
+      return oldVal==1?"男":"女"
+    });
+    new Vue({
+      el:"#app",
+      data:{
+        sex:0
+      }
+    })
+  </script>
+</body>
+</html>

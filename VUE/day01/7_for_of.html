@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+  <style>
+    ul{
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="(n,i) of names">{{i+1}} - {{n}}</li>
+    </ul>
+  </div>
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        names:["亮亮","然然","东东","嘻嘻"]
+      }
+    })
+  </script>
+</body>
+</html>

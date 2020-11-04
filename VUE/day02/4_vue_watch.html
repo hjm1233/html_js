@@ -1,0 +1,42 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <script src="../vue.js"></script>
+        <style></style>
+    </head>
+    <body>
+    <div id="app">
+        <input v-model="keyword" @keyup.13="search">
+        <button @click="search">百度一下</button>
+    </div>
+    <script>
+  
+
+    var vm=new Vue({
+        el:"#app",
+        data:{
+            keyword:""
+        },
+        methods:{
+            search(){
+                if(this.timer!=null){
+                    clearTimeout(this.timer)
+                }
+                this.timer=setTimeout(()=>{
+                    if(this.keyword.trim()!==""){
+                        console.log(`查找${this.keyword.trim()}相关的内容`)
+                    }
+                })
+            }
+        },
+        watch:{
+            keyword(){
+                this.search();
+            }
+        }
+    })
+    </script>
+    </body>
+</html>

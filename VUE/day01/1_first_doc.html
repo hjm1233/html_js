@@ -8,28 +8,30 @@
     <script src="../vue.js"></script>
 </head>
 <body>
+    
     <div id="app">
        <button @click="minus">-</button>
        <span>{{n}}</span>
        <button @click="add">+</button>
     </div>
     <script>
-         new Vue({
+        new Vue({
             el:"#app",
             data:{
                 n:0
             },
             methods:{
                 add(){
-                  this.n++;
+                    this.n++;
                 },
                 minus(){
                     if(this.n>0){
-                       this.n--; 
+                        this.n--;
                     }
                 }
             }
         })
+        
     </script>
 </body>
 </html>

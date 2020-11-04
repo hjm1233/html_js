@@ -1,0 +1,67 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <script src="../vue.js"></script>
+        <style>
+            #app>div{
+                text-align:center;
+                line-height: 200px;
+                width: 300px;height: 200px;
+                cursor: pointer;
+                float: left;
+            }
+            #app>div:first-child{
+               background-color: #ffa;
+            }
+            #app>div:nth-child(2){
+               background-color: #aff;
+            }
+            #app>div:nth-child(3){
+               background-color: #faf;
+            }
+            #app>div:nth-child(4){
+               background-color: #aaf;
+            }
+            #app>div:nth-child(5){
+               background-color: #afa;
+            }
+        </style>
+    </head>
+    <body>
+     <div id="app">
+        <div v-on:click="pop1(dv1)">{{dv1}}</div>
+        <div v-on:click="pop2(dv2)">{{dv2}}</div>
+        <div v-on:click="pop">{{dv3}}</div>
+        <div v-on:click="pop">{{dv4}}</div>
+        <div v-on:click="popNew($event,dv5)">{{dv5}}</div>
+     </div>
+    <script>
+    var vm=new Vue({
+    el:"#app",
+    data:{
+      dv1:"第一个div",
+      dv2:"第二个div",
+      dv3:"第三个div",
+      dv4:"第四个div",
+      dv5:"第五个div"
+    },
+    methods:{
+        pop1(name){
+            alert(`${name}说:'疼'`);
+        },
+        pop2(name){
+            alert(`${name}说:'疼'`);
+        },
+        pop(e){
+            alert(`点在x:${e.offsetX},y:${e.offsetY}的位置`);
+        },
+        popNew(e,name){
+            alert(`点在${name}上的x:${e.offsetX},y:${e.offsetY}的位置`);
+        }
+    }
+    })
+    </script>
+    </body>
+</html>

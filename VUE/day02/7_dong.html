@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <!--1. 做界面-->
+  <div id="app">
+    <!--1.1 找可能发生变化的位置
+      本例中: 文本框的内容可能发生变化-->
+    <input type="text" @input="myInput" :value="keywords">
+    <!--1.2 找触发事件的元素
+      本例中: button触发事件-->
+    <button @click="search">百度一下</button>
+  </div>
+  <div id="app">
+       <input type="text" @input="myInput" :value="keywords">
+       <button @click="search">百度一下</button>
+  </div>
+  <script>
+    //2. 创建new Vue()对象
+    var vm=new Vue({
+      el:"#app",
+      //3. 创建模型对象
+      //3.1 因为界面上只需要一个变量，所以
+      data:{
+        keywords:"" //保存用户在文本框中输入的内容，开局，用户什么都没输入，默认""
+      },
+      //3.2 因为界面上需要一个函数
+      methods:{
+        search(){
+          console.log(`查找 ${this.keywords} 相关的内容...`);
+        },
+        myInput(e){
+          //this不指当前触发事件的元素了
+          //vue中所有的this都指向当前new Vue()对象本身！
+          //获得当前文本框的内容
+          var value=e.target.value;
+          //        当前文本框 内容
+          //将文本框的内容自动修改到data中的keywords变量上
+          this.keywords=value;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

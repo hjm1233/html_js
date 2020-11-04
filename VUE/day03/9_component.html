@@ -1,0 +1,54 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <script src="../vue.js"></script>
+        <style></style>
+    </head>
+    <body>
+    <div id="app">
+        <!-- <div>
+            <button>-</button>
+            <span>0</span>
+            <button>+</button>
+        </div> -->
+        <my-counter></my-counter>
+        <my-counter></my-counter>
+        <my-counter></my-counter>
+    </div>
+    <script>
+    Vue.component("my-counter",{
+        template:
+        `<div>
+            <button @click="minus">-</button>
+            <span>{{n}}</span>
+            <button @click="add">+</button>
+        </div>`,
+        data(){
+            return {//相当于之前的data:{}
+              //因为界面中需要一个变量
+              n:0
+            }
+        },
+        methods:{
+            add(){
+                this.n++;
+            },
+            minus(){
+                if(this.n>0){
+                    this.n--;
+                }
+            }
+        }
+    })
+
+    var vm=new Vue({
+    el:"#app",
+    data:{
+
+    }
+    })
+    </script>
+    </body>
+</html>

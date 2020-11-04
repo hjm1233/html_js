@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+  <style>
+    .span-cls{
+      padding:5px 10px;
+    }
+    .success{
+      background-color:lightGreen;
+      border:green;
+      color:green;
+    }
+    .fail{
+      background-color:pink;
+      border:red;
+      color:red;
+    }
+  </style>
+</head>
+<body>
+  <!--1. 做界面
+    1.1 找界面中可能发生变化的位置
+    本例中: 
+    文本框会被用户主动修改，新值要自动更新到程序中，所以文本框用v-model绑定
+    span的样式可能发生变化，在success和fail两种class之间来回切换
+    span的内容可能发生变化
+    1.2 找界面中触发事件的元素
+    本例中: 文本框失去焦点时自动触发验证-->
+  <div id="app">
+    手机号:<input v-model="phone" @blur="valiPhone">
+    <span class="span-cls" :class="phoneSpan">{{phoneMsg}}</span><br/>
+
+    身份证号:<input v-model="pid" @blur="valiPid">
+    <span class="span-cls" :class="pidSpan">{{pidMsg}}</span>
+  </div>
+  <script>
+    //2. 创建new Vue()对象
+    var vm=new Vue({
+      el:"#app",
+      //3. 创建模型对象
+      //因为界面中共需要4个变量，所以: 
+      data:{
+        phone:"",//接文本框中的值
+        pid:"",//接文本框中的值
+        phoneSpan:{//控制手机号验证结果的样式
+          success:false,
+          fail:false
+        },
+        pidSpan:{//控制身份证号验证结果的样式
+          success:false,
+          fail:false
+        },
+        phoneMsg:"",//保存手机号的错误提示
+        pidMsg:""//保存身份证号的错误提示
+      },
+      //因为界面中需要一个事件处理函数
+      methods:{
+        valiPhone(){
+          //定义验证手机号的正则表达式： 
+          var reg=/^1[3-9]\d{9}$/;
+          //用正则验证手机号正确
+          // 复习小程序中js高级第2天
+          if(reg.test(this.phone)==true){
+            //就修改span为验证通过的样子
+            this.phoneSpan={
+              success:true,
+              fail:false
+            };
+            this.phoneMsg=" √ 手机号格式正确";
+          }else{//否则如果验证失败
+            //就修改span为验证失败的样式
+            this.phoneSpan={
+              success:false,
+              fail:true
+            };
+            this.phoneMsg=" × 手机号格式不正确"
+          }
+        },
+        valiPid(){
+          //定义验证身份证号的正则表达式： 
+          var reg=/^\d{15}(\d\d[0-9x])$/i;
+          //用正则验证身份证号正确
+          // 复习小程序中js高级第2天
+          if(reg.test(this.pid)==true){
+            //就修改span为验证通过的样子
+            this.pidSpan={
+              success:true,
+              fail:false
+            };
+            this.pidMsg=" √ 身份证号格式正确";
+          }else{//否则如果验证失败
+            //就修改span为验证失败的样式
+            this.pidSpan={
+              success:false,
+              fail:true
+            };
+            this.pidMsg=" × 身份证号格式不正确"
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

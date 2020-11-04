@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../axios.min.js"></script>
+</head>
+<body>
+  <script>
+    axios.defaults.baseURL="http://xzserver.applinzi.com";
+    axios.get("/index").then(result=>{
+      console.log(result.data);
+    })
+    axios.get("/details",{
+      params:{
+        lid:5
+      }
+    }).then(result=>{
+      console.log(result.data);
+    })
+
+    //0. 配置统一的基础路径
+    axios.defaults.baseURL="http://xzserver.applinzi.com";
+    //1. 去东哥新浪云服务器获取学子商城首页商品列表
+    axios.get("/index").then(result=>{
+      console.log(result.data);
+    })
+    //2. 去东哥新浪云服务器获取5号商品的详细信息
+    axios.get("/details",{
+      params:{
+        lid:5
+      }
+    }).then(result=>{
+      console.log(result.data);
+    })
+    //3. 去东哥服务器验证用户名和密码，登录
+    axios.post(
+      "/users/signin",
+      "uname=dingding&upwd=123456"
+    ).then(result=>{
+      console.log(result.data);
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+  <style>
+    img{
+      position:fixed;
+      left:50%;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!--           属性名      变量-->
+    <!--           不能自定义   可自定义-->
+    <!-- <img :style="{marginLeft:marginLeft,bottom:bottom}" src="img/p3.png"> -->
+    <img :style="{marginLeft,bottom}" src="img/p3.png">
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{
+        marginLeft:"-100px",
+        bottom:"50px"
+      }
+    })
+  </script>
+</body>
+</html>

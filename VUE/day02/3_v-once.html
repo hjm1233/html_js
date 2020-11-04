@@ -1,0 +1,24 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <script src="../vue.js"></script>
+        <style></style>
+    </head>
+    <body>
+    <div id="app">
+         <h1>当前系统时间:{{new Date(now).toLocaleString()}}</h1>
+         <h1 v-once>上线时间:{{new Date(now).toLocaleString()}}</h1>
+    </div>
+    <script>
+
+    var vm=new Vue({
+    el:"#app",
+    data:{
+       now:new Date().getTime()
+    }
+    })
+    </script>
+    </body>
+</html>

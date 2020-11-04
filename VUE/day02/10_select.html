@@ -1,0 +1,33 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <script src="../vue.js"></script>
+        <style></style>
+    </head>
+    <body>
+    <div id="app">
+        <!-- :value="" -->
+       <select v-model="orderStatus">
+           <option value="0">未付款</option>
+           <option value="10">已付款</option>
+           <option value="20">已发货</option>
+           <option value="30">已签收</option>
+       </select>
+       <h3>
+        当前订单状态为:{{orderStatus==0?"未付款":
+                        orderStatus==10?"已付款":
+                        orderStatus==20?"已发货":"已签收"}}
+    </h3>
+    </div>
+    <script>
+    var vm=new Vue({
+    el:"#app",
+    data:{
+     orderStatus:0
+    }
+    })
+    </script>
+    </body>
+</html>

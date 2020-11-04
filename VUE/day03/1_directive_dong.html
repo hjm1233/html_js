@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <input v-my-focus><button>百度一下</button>
+  </div>
+  <script>
+    //1. 创建一个可让当前元素自动获得焦点的自定义指令
+    Vue.directive("my-focus",{
+      //当当前元素被加入到DOM树之后，立刻自动执行该函数
+      //并将当前元素自动传给domElem形参
+      inserted(domElem){
+        //对当前元素执行DOM操作: 自动获得焦点
+        domElem.focus();//复习DOM第4天
+      }
+    });
+
+    new Vue({
+      el:"#app"
+    })
+  </script>
+</body>
+</html>

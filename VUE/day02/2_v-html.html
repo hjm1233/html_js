@@ -1,0 +1,42 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <script src="../vue.js"></script>
+        <style>
+            /* 必须写一个display:none;的样式,加载完成后修改 */
+            [v-cloak]{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- v-html v-cloak v-text -->
+    <div id="app">
+        <!-- msg只显示一串字符串 -->
+         <h1 v-cloak>{{msg}}</h1>
+         <h1 v-html="msg" v-cloak></h1>
+         <!-- 页面无法显示时会隐藏 -->
+         <h1 v-cloak>用户名:{{uname}}</h1>
+         <h3 v-cloak>积分:{{score}}</h3>
+         <!-- 第二种方式隐藏无法显示的页面 -->
+         <h1 v-text="`用户名:${uname}`"></h1>
+         <h3 v-text="`积分:${score}`"></h3>
+    </div>
+    <script>
+
+    setTimeout(function(){
+        var vm=new Vue({
+            el:"#app",
+            data:{
+                uname:"dingding",
+                score:3000,
+                msg:`来自<a href="javascript:;">&lt;&lt;新华社&gt;&gt;</a>的消息`
+            }
+        })
+    },2000)
+    
+    </script>
+    </body>
+</html>

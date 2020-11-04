@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- :checked="sex" -->
+    <label><input type="radio" value="1" name="sex" v-model:checked="sex">男</label>
+    <!-- :checked="sex" -->
+    <label><input type="radio" value="0" name="sex" v-model:checked="sex">女</label>
+    <h3>我是{{sex==1?"男生♂":"女生♀"}}</h3>
+  </div>
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        sex:1
+      }
+    })
+  </script>
+</body>
+</html>
